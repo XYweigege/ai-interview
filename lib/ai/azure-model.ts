@@ -1,5 +1,7 @@
 // Azure OpenAI 模型示例
+// @ts-ignore
 import { AzureChatOpenAI } from "@langchain/openai";
+//@ts-ignore
 import { AzureOpenAIEmbeddings } from "@langchain/openai";
 
 export function getAzureOpenAIInstance() {

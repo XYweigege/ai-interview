@@ -342,14 +342,12 @@ export default function QuestionSearch() {
                                       color={getDifficultyColor(
                                         item.difficulty,
                                       )}
-                                      size="small"
+                                      // size="small"
                                     >
                                       {getDifficultyText(item.difficulty)}
                                     </Tag>
                                     {item.companies?.slice(0, 2).map((c) => (
-                                      <Tag key={c} size="small">
-                                        {c}
-                                      </Tag>
+                                      <Tag key={c}>{c}</Tag>
                                     ))}
                                   </Space>
                                 </Space>
@@ -399,7 +397,7 @@ export default function QuestionSearch() {
                           <Text ellipsis style={{ maxWidth: 260 }}>
                             {item.question}
                           </Text>
-                          <Tag size="small">{item.category}</Tag>
+                          <Tag>{item.category}</Tag>
                         </Space>
                       </List.Item>
                     )}
