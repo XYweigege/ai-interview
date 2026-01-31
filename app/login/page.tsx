@@ -96,13 +96,6 @@ export default function LoginPage() {
               </Button>
             </Form.Item>
           </Form>
-
-          <div style={{ textAlign: "left", fontSize: 12, color: "#999" }}>
-            <Text type="secondary">测试账号：</Text>
-            <div>admin / admin123 (管理员)</div>
-            <div>test / test123 (普通用户)</div>
-            <div>demo / demo123 (演示账号)</div>
-          </div>
         </Space>
       </Card>
     </div>

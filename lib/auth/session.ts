@@ -25,7 +25,7 @@ export function createSession(user: {
 }): string {
   const sessionId = generateSessionId();
   const now = new Date();
-  const expiresAt = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000); // 7天
+  const expiresAt = new Date(now.getTime() + 30 * 60 * 1000); // 30分钟
 
   sessions.set(sessionId, {
     id: sessionId,
