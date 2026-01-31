@@ -4,30 +4,22 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Card, Form, Input, Button, message, Typography, Space } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { useAuth } from "@/components/auth/AuthProvider";
 
 const { Title, Text } = Typography;
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { login } = useAuth();
 
   const onFinish = async (values: { username: string; password: string }) => {
     setLoading(true);
     try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      });
-
-      const data = await response.json();
-
-      if (data.status === "ok") {
+      const success = await login(values.username, values.password);
+      if (success) {
         message.success("登录成功！");
         router.push("/");
-        router.refresh();
-      } else {
-        message.error(data.error || "登录失败");
       }
     } catch (error) {
       message.error("登录请求失败，请重试");
